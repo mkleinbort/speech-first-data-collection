@@ -5,7 +5,7 @@ import uuid
 session_id = uuid.uuid1()
 st.title('Speech First Data Collection')
 
-st.makdown('''
+st.markdown('''
 ### Thank you!
 Capgemini UK is developing an app to help people with speech dificulties improve their
 speech though better access to speech therapists and real-time feedback
