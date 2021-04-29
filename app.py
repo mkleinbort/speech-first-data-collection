@@ -1,6 +1,8 @@
 import streamlit as st
 import uuid
+from helpers import *
 
+st.set_page_config(layout="wide")
 
 session_id = uuid.uuid1()
 st.title('Speech First Data Collection')
@@ -43,7 +45,9 @@ with st.beta_expander('Optional: Metadata for Fairness scoring'):
         age = st.selectbox('Age', ['', '~20','~40', '~60', '~80'])
     
     with col3:
-        st.write(f'''
+        accent = st.selectbox('Accent',['','England','Scottland','Other'])
+
+    st.write(f'''
         
         Your files will be saved as:
 
@@ -51,4 +55,26 @@ with st.beta_expander('Optional: Metadata for Fairness scoring'):
 
         ''')
     
+
+if st.button(f"Click to Record"):
+    if filename == "":
+        st.warning("Choose a filename.")
+    else:
+        record_state = st.text("Recording...")
+
+        duration = 5  # seconds
+        fs = 48000
+        myrecording = record(duration, fs)
+        record_state.text(f"Saving sample as {filename}.mp3")
+
+
+        path_myrecording = f"./samples/{filename}.mp3"
+
+        save_record(path_myrecording, myrecording, fs)
+        record_state.text(f"Done! Saved sample as {filename}.mp3")
+
+        st.audio(read_audio(path_myrecording))
+
+        fig = create_spectrogram(path_myrecording)
+        st.pyplot(fig)
 
