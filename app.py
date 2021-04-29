@@ -1,6 +1,10 @@
 import streamlit as st
 import uuid
 from helper import *
+import os
+
+os.system('ls')
+os.system('sudo apt-get install libsndfile1')
 
 st.set_page_config(layout="wide")
 
