@@ -5,7 +5,7 @@ import uuid
 session_id = uuid.uuid1()
 st.title('Speech First Data Collection')
 
-st.code(f'This session id is {session_id')
+st.code(f'This session id is {session_id}')
 
 st.markdown('''
 ### Thank you!
