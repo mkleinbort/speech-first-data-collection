@@ -20,7 +20,7 @@ Optional: If you are willing to provide some metadata we'll use that to test our
 
 ''')
 
-with st.beta_container('Optional: Metadata for Fairness scoring'):
+with st.beta_expander('Optional: Metadata for Fairness scoring'):
 
     st.markdown('''
     ### Fairness data
