@@ -34,8 +34,8 @@ with st.beta_expander('Optional: Metadata for Fairness scoring'):
         'session-2x3416e-gender-F-age-30-prompt-ah-pah-timestamp-2021-05-03:12:21:11.wav'
     ''')
 
-    gender = st.select_box('Gender', ['', 'M','F'])
-    age = st.select_box('Age', ['', '~20','~40', '~60', '~80'])
+    gender = st.selectbox('Gender', ['', 'M','F'])
+    age = st.selectbox('Age', ['', '~20','~40', '~60', '~80'])
     
     st.write(f'''
     
